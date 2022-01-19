@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {% load static %}
+
+    <title>AjWorld</title>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link rel="icon" type="image/icon" href="image/icon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+</head>
+
+
+<body class='bg-light1'>
+
+    <div id="head_dash" class="container-fluid pt-2 pb-0 bg-white" >
+        <div class="row">
+            <div class="col-sm">
+                <img src="{% static 'images/logo_black.png' %}" class="img-thumbnail border-0" style='background:none !important' alt="logo"> 
+            </div>
+            <div class="col-sm-2">
+                <div class="row">
+                    <h6 class="text-right mr-3"> <a href="/data_load" class=" btn btn-outline-dark"> Load Data</a></h6>
+                    <h4 class="text-right mr-3"> <a href="/logout" class="text-dark"><i class="fas fa-power-off"></i> </a></h4>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <div class="container-fluid p-4 w-90">
+        <div class="row">
+            <div class="col-sm">
+            <h2 class="text-dark"> <i class="fas fa-chart-line"></i> Revenue Insights</h2>
+            </div>
+
+            <div class="col-lg-1">
+                <a href="#" id='btn_fil' class="btn btn-outline-dark btn-md "> Filter <i class="fa fa-filter" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-lg-2">
+                <p id='btn_date' class="btn btn-outline-dark btn-md " > <i class="fas fa-calendar"></i> 1-Jan - Current Date </p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container-fluid  p-5" id="fill_box">
+        <div class="col-sm-4 p-5 bg-danger m-auto">
+            <div class="row">
+                <div class="col-sm">    
+                    <h5 class="text-white">Apply Filters</h5>
+                </div>
+                <div class="col-sm-1">
+                    <a href="#" id='btn_fil_close' class="btn btn-outline-light btn-md "> <i class="fa fa-window-close" aria-hidden="true"></i>                   </a>
+                </div>
+            </div>
+            <div class="col pl-4 pr-4 pt-3 pb-3 text-white  ">
+                <label for=""> <i class="fas fa-suitcase mr-2"></i> Job</label>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                        <select id='select_job' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Job Number" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option value="SBJ000011">SBJ000011</option>
+                            <option value="SBJ000012">SBJ000012</option>
+                            <option value="SBJ000013">SBJ000013</option>
+                            <option value="SBJ000014">SBJ000014</option>
+                            <option value="SBJ000015">SBJ000015</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+            <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                <label for=""> <i class="fas fa-users mr-2"></i> Customer</label>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                        <select id='select_customer' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Customer Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option value="SBJ000011">MYGRANT GLASS</option>
+                            <option value="SBJ000012">ATLAS LOGISTICS PVT LTD</option>
+                            <option value="SBJ000013">BCC LOGISTICS-LEBANON</option>
+                            <option value="SBJ000014">DELTA BRANDS INC.</option>
+                            <option value="SBJ000015">IMTREX INC.</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+            <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                <label for=""> <i class="fas fa-cog mr-2"></i> Segments</label>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                        <select id='select_segment' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Segment Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option value="Segment_name_1">Segment_name_1</option>
+                            <option value="Segment_name_2">Segment_name_2</option>
+                            <option value="Segment_name_3">Segment_name_3</option>
+                            <option value="Segment_name_4">Segment_name_4</option>
+                            <option value="Segment_name_5">Segment_name_5</option>
+                        </select>
+                        </div>
+                        <script type='text/javascript'>$('select').select2();</script>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                <label for=""> <i class="fas fa-arrow-up mr-2"></i> Origin</label>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                        <select id='select_origin' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Origin Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option value="Origin_name_1">Origin_name_1</option>
+                            <option value="Origin_name_2">Origin_name_2</option>
+                            <option value="Origin_name_3">Origin_name_3</option>
+                            <option value="Origin_name_4">Origin_name_4</option>
+                            <option value="Origin_name_5">Origin_name_5</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+
+            <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                <label for=""> <i class="fas fa-arrow-down mr-2"></i> Destination</label>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                        <select id='select_destination' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Origin Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option value="Destination_name_1">Destination_name_1</option>
+                            <option value="Destination_name_2">Destination_name_2</option>
+                            <option value="Destination_name_3">Destination_name_3</option>
+                            <option value="Destination_name_4">Destination_name_4</option>
+                            <option value="Destination_name_5">Destination_name_5</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+               
+               
+            </div>
+
+
+            <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                <label for=""> <i class="fas fa-user mr-2"></i> Executive</label>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                        <select id='select_executive' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Origin Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            <option value="Executive_name_1">Executive_name_1</option>
+                            <option value="Executive_name_2">Executive_name_2</option>
+                            <option value="Executive_name_3">Executive_name_3</option>
+                            <option value="Executive_name_4">Executive_name_4</option>
+                            <option value="Executive_name_5">Executive_name_5</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+
+            <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <input type="submit" id='btn_fill_dropdowns' value="Apply Filter" class="form-control btn btn-outline-light">
+                        </div>
+                    </div>
+                </div>
+
+                <script type='text/javascript'>$('select').select2();</script>
+                <script type='text/javascript'>
+                    $('#btn_fill_dropdowns').on('click', function(e) {
+                        
+                        var select_job = $("#select_job").val();
+                        var select_customer = $("#select_customer").val();
+                        var select_segment = $("#select_segment").val();                                
+                        var select_origin = $("#select_origin").val();                                
+                        var select_destination = $("#select_destination").val();                                
+                        var select_executive = $("#select_executive").val();                                
+                        var select_value = $("#select_value").val();
+
+                        var json_data = {}
+                        json_data["select_job"] = select_job;
+                        json_data["select_customer"] = select_customer;
+                        json_data["select_segment"] = select_segment;
+                        json_data["select_origin"] = select_origin;
+                        json_data["select_destination"] = select_destination;
+                        json_data["select_executive"] = select_executive;
+                        json_data["select_value"] = select_value;
+                        console.log(json_data);
+
+                    });
+                    
+                </script>
+                <script type='text/javascript'>$('select').select2({
+                    closeOnSelect: false
+                });</script>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $("#btn_fil").on('click', function() {
+            $("#fill_box").show();
+            });
+        $("#btn_fil_close").on('click', function() {
+            $("#fill_box").hide();
+            });
+    </script>
+
+
+    <div class="container-fluid p-5" id="date_box">
+        <div class="col p-5"></div>
+        <div class="container p-5 mt-5 bg-danger">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-1">
+                    <a href="#" id='btn_date_close' class="btn btn-outline-light btn-md "> <i class="fa fa-window-close" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col"> <h4 class="text-white"> From Date </h4></div>
+                    <div class="col"> <h4 class="text-white"> To Date </h4></div>
+                    <div class="col-sm-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                        <div class="col text-center"> 
+                                {% csrf_token %}
+                                <input type="date" name="from_date" id="from_date" class="form-control">
+                                
+                        </div>
+                        <div class="col text-center"> 
+                                <input type="date" name="from_date" id="to_date" class="form-control">
+                        </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                        <div class="col"> 
+                                <input type="submit" name="submit" id="submit_date" value="Apply Filter" class="btn mt-3 btn-outline-light ">
+                        </div>
+                        <div class="col text-center"> 
+                        </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                
+                <script type='text/javascript'>
+                    $("#submit_date").on('click', function() {
+                        var from_date = document.getElementById("from_date").value;
+                        var to_date = document.getElementById("to_date").value;
+                        var com_date = '<i class="fas fa-calendar"></i> &nbsp; '
+                        com_date = com_date + from_date.toString() + " &nbsp; - &nbsp;" +  to_date.toString();
+                        console.log(com_date);
+                        document.getElementById("btn_date").innerHTML  = com_date;
+                        $("#date_box").hide();
+
+                        });
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $("#btn_date").on('click', function() {
+            $("#date_box").show();
+            });
+        $('#btn_date_close').on('click', function() {
+            $("#date_box").hide();
+            });
+    </script>
+
+
+    <div class="container-fluid w-90 p-2">
+        <div class="row">
+            
+            <div id='card1' class="col-sm-2 p-3 ml-sm-4 border border-dark-1">
+                <div class="col">YTD JOB PROFIT</div>
+                <div class="col"> <h4 class="fw-400">2890090 $ </h4> </div>
+            </div>
+
+            
+            <div id='card1' class="col-sm-2 p-3 ml-sm-4 border border-dark-1">
+                <div class="col">YTD NUMBER OF JOB</div>
+                <div class="col"> <h4 class="fw-400">4357</h4> </div>
+            </div>
+
+            
+            <div id='card1' class="col-sm-2 p-3 ml-sm-4 border border-dark-1">
+                <div class="col">YTD JOB PROFIT</div>
+                <div class="col"> <h4 class="fw-400">2890090 $ </h4> </div>
+            </div>
+
+            
+            <div id='card1' class="col-sm-2 p-3 ml-sm-4 border border-dark-1">
+                <div class="col">YTD JOB PROFIT</div>
+                <div class="col"> <h4 class="fw-400">2890090 $ </h4> </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid p-2 w-90 mt-5">
+        <div class="row">
+            <div class="col-sm  border border-dark-1 bg-white p-5 m-2"></div>
+            <div class="col-sm  border border-dark-1 bg-white p-5 m-2"></div>
+            <div class="col-sm  border border-dark-1 bg-white p-5 m-2"></div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid w-90 mt-5">
+        <div class="row">
+            
+            <div class="col-sm p-5 bg-white border border-dark-1 p-5 m-1">
+
+            </div>
+
+            <div class="col-sm p-5 bg-white border border-dark-1 p-5 m-1">
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="container-fluid mt-5 p-5 bg-dark">
+        <p class="text-white text-center">Copyrights &copy; All rights are reserved</p>
+    </div>
+
+
+</body>
+
+</html>

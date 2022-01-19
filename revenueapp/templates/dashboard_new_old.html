@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ {% load static %}
+
+    <title>AjWorld</title>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/icon" href="images/icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link rel="icon" type="image/icon" href="image/icon.png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+</script>
+</head>
+
+
+<body class='bg-light'>
+
+
+    <div class="container-fluid">
+
+
+        <div class="row">
+
+
+            <!-- Side bar -->
+
+
+            <div id='sidebar' class="col-sm-2 bg-dark-blue1 p-0 pt-4">
+                <a href="/" class="">
+                    <center><img src="{% static 'images/logo.png' %}" class="img-thumbnail border-0" style='background:none !important' alt="logo"></center> 
+                </a>
+
+                <div class="col p-2 text-center mt-4">
+                    <h6 class="text-white  fs-1"><i class="fas fa-chart-line"></i> &nbsp; Revenue Dashboard</h6>
+                </div>
+
+                <div class="col p-1 bg-danger p-0 mb-4"></div>
+
+                <!-- Filters -->
+                    <div class="col pl-4 pr-4 pt-3 pb-3 text-white  ">
+                        <label for=""> <i class="fas fa-suitcase mr-2"></i> Job</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                <select id='select_job' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Job Number" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                    <option value="SBJ000011">SBJ000011</option>
+                                    <option value="SBJ000012">SBJ000012</option>
+                                    <option value="SBJ000013">SBJ000013</option>
+                                    <option value="SBJ000014">SBJ000014</option>
+                                    <option value="SBJ000015">SBJ000015</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                        <label for=""> <i class="fas fa-users mr-2"></i> Customer</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                <select id='select_customer' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Customer Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                    <option value="SBJ000011">MYGRANT GLASS</option>
+                                    <option value="SBJ000012">ATLAS LOGISTICS PVT LTD</option>
+                                    <option value="SBJ000013">BCC LOGISTICS-LEBANON</option>
+                                    <option value="SBJ000014">DELTA BRANDS INC.</option>
+                                    <option value="SBJ000015">IMTREX INC.</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                        <label for=""> <i class="fas fa-cog mr-2"></i> Segments</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                <select id='select_segment' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Segment Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                    <option value="Segment_name_1">Segment_name_1</option>
+                                    <option value="Segment_name_2">Segment_name_2</option>
+                                    <option value="Segment_name_3">Segment_name_3</option>
+                                    <option value="Segment_name_4">Segment_name_4</option>
+                                    <option value="Segment_name_5">Segment_name_5</option>
+                                </select>
+                                </div>
+                                <script type='text/javascript'>$('select').select2();</script>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                        <label for=""> <i class="fas fa-arrow-up mr-2"></i> Origin</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                <select id='select_origin' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Origin Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                    <option value="Origin_name_1">Origin_name_1</option>
+                                    <option value="Origin_name_2">Origin_name_2</option>
+                                    <option value="Origin_name_3">Origin_name_3</option>
+                                    <option value="Origin_name_4">Origin_name_4</option>
+                                    <option value="Origin_name_5">Origin_name_5</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+
+                    <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                        <label for=""> <i class="fas fa-arrow-down mr-2"></i> Destination</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                <select id='select_destination' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Origin Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                    <option value="Destination_name_1">Destination_name_1</option>
+                                    <option value="Destination_name_2">Destination_name_2</option>
+                                    <option value="Destination_name_3">Destination_name_3</option>
+                                    <option value="Destination_name_4">Destination_name_4</option>
+                                    <option value="Destination_name_5">Destination_name_5</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                       
+                       
+                    </div>
+
+
+                    <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                        <label for=""> <i class="fas fa-user mr-2"></i> Executive</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                <select id='select_executive' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Origin Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                    <option value="Executive_name_1">Executive_name_1</option>
+                                    <option value="Executive_name_2">Executive_name_2</option>
+                                    <option value="Executive_name_3">Executive_name_3</option>
+                                    <option value="Executive_name_4">Executive_name_4</option>
+                                    <option value="Executive_name_5">Executive_name_5</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                    <div class="col pl-4 pr-4 pt-1 pb-2 text-white  ">
+                        <label for=""> <i class="fas fa-th-large mr-2"></i> Values</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                <select id='select_value' class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select Origin Name" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                    <option value="Value_1">Value_1</option>
+                                    <option value="Value_2">Value_2</option>
+                                    <option value="Value_3">Value_3</option>
+                                    <option value="Value_4">Value_4</option>
+                                    <option value="Value_5">Value_5</option>
+                                </select>
+                                </div>
+                                <script type='text/javascript'>$('select').select2();</script>
+                            </div>
+                        </div>
+                        <script type='text/javascript'>
+                            $('select').on('change', function(e) {
+                                
+                                var select_job = $("#select_job").val();
+                                var select_customer = $("#select_customer").val();
+                                var select_segment = $("#select_segment").val();                                
+                                var select_origin = $("#select_origin").val();                                
+                                var select_destination = $("#select_destination").val();                                
+                                var select_executive = $("#select_executive").val();                                
+                                var select_value = $("#select_value").val();
+
+                                var json_data = {}
+                                json_data["select_job"] = select_job;
+                                json_data["select_customer"] = select_customer;
+                                json_data["select_segment"] = select_segment;
+                                json_data["select_origin"] = select_origin;
+                                json_data["select_destination"] = select_destination;
+                                json_data["select_executive"] = select_executive;
+                                json_data["select_value"] = select_value;
+                                console.log(json_data);
+
+                            });
+                            
+                        </script>
+                        <script type='text/javascript'>$('select').select2({
+                            closeOnSelect: false
+                        });</script>
+                    </div>
+
+            </div>
+
+            <div class="col p-0">
+                <div id='head_dash' class="col bg-white">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="row p-0">
+                                <div class="col-1 ml-3 p-0">
+                                    <img src="{% static 'images/calender.png' %}" class="img-thumbnail mt-2 border-0" alt="">
+                                </div>
+                                <div class="col-sm p-1">
+
+                                    <div class="col-sm mt-1">
+                                        <div class="row">
+                                            <div class="col pl-0">
+                                                <div class="btn-group-toggle" data-toggle="buttons">
+                                                    <label class="btn btn-outline-dark form-control btn-sm">
+                                                        <input type="checkbox" autocomplete="off" value="JAN"> JAN
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">FEB</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">MAR</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">APR</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">MAY</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">JUN</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm mt-1">
+                                        <div class="row">
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">JLY</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">AUG</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">SEP</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">AUG</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">NOV</a>
+                                            </div>
+                                            <div class="col pl-0">
+                                                <a href="#" class="btn btn-outline-dark form-control btn-sm">DEC</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="col-5">
+                            <img src="{% static 'images/head_clip.png' %}" class='img-thumbnail border-0' alt="">
+                        </div>
+                        <div class="col-1 pt-4">
+                            <h4 class="text-center"> <a href="/logout" class="text-dark"><i class="fas fa-power-off"></i> </a></h4>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row m-1 p-3">
+
+
+                        <div class="col m-2 bg-white" id='card'>
+                            <div class="row">
+                                <div class="col-1 bg-info"></div>
+                                <div class="col">
+                                    <div class="col">YTD JOB PROFIT</div>
+                                    <div class="col p-3"> <h2 class="fw-400">2890090 $ </h2> </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col m-2 bg-white" id='card'>
+                            <div class="row">
+                                <div class="col-1 bg-dark"></div>
+                                <div class="col">
+                                    <div class="col">YTD NUMBER OF JOB</div>
+                                    <div class="col p-3"> <h2 class="fw-400">4567 </h2> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col m-2 bg-white" id='card'>
+                            <div class="row">
+                                <div class="col-1 bg-warning"></div>
+                                <div class="col">
+                                    <div class="col">YTD JOB PROFIT</div>
+                                    <div class="col p-3"> <h2 class="fw-400">2890090 $ </h2> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col m-2 bg-white" id='card'>
+                            <div class="row">
+                                <div class="col-1 bg-danger"></div>
+                                <div class="col">
+                                    <div class="col">YTD JOB PROFIT</div>
+                                    <div class="col p-3"> <h2 class="fw-400">2890090 $ </h2> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                    
+                
+                <div class="row mr-sm-2 ml-sm-2">
+
+                    <div class="col-sm m-3 p-0 m-0">
+                        <div id="grid" class="col-sm bg-dark-blue1 text-white p-2"> <h5 class="ml-sm-4"> Profit By Month</h5> </div>
+                        <div class="col-sm  border border-1 border-dark bg-white p-5"></div>
+                    </div>
+                    
+                    <div class="col-sm  m-3 p-0 m-0">
+                        <div id="grid" class="col-sm bg-dark-blue1 text-white p-2"> <h5 class="ml-sm-4"> Profit By Month</h5> </div>
+                        <div class="col-sm p-5 bg-dark"></div>
+                    </div>
+                    
+                    
+                    <div class="col-sm  m-3 p-0 m-0">
+                        <div id="grid" class="col-sm bg-dark-blue1 text-white p-2"> <h5 class="ml-sm-4"> Profit By Month</h5> </div>
+                        <div class="col-sm p-5 bg-dark"></div>
+                    </div>
+                    
+                    
+                    
+                </div>
+
+                <!-- End Container -->
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+.bg-dark-blue{
+    background-color: #1bcc77 !important;
+}
+.bg-dark-blue1{
+    background-color: #035c83 !important;
+}
+.text-shadow1{
+    text-shadow: 0px 5px 5px #000 !important;
+}
+
+.bg-dark-head{
+    background-color: #19456B !important;
+
+}
+.text-dark-blue{
+    color: #035c83 !important;
+}
+.select2-container .select2-selection--single{
+    height:34px !important;
+}
+.select2-container--default .select2-selection--single{
+         border: 1px solid #ccc !important; 
+     border-radius: 0px !important; 
+}
+
+.w-90{
+    width: 95% !important;
+}
+.fw-400{
+    font-weight: 400 !important;
+}
+
+.nav-img-logo{
+    width: 90% !important;
+}
+#sidebar{
+    box-shadow: 0px 0px 10px 0px #000 !important;
+    z-index: 1 !important;
+}
+#head_dash{
+    box-shadow: 0px 0px 10px 0px #000 !important;
+    /* -webkit-box-shadow: 0 10px 10px -10px #000000;
+   -moz-box-shadow: 0 10px 10px -10px #000000;
+        box-shadow: 0 10px 10px -10px #000000; */
+}
+
+.fs-1{
+    font-size: 1vw !important;
+}
+
+
+#grid{
+    border: 0;
+    border-top-left-radius: 1.5vw !important;
+    border-top-right-radius: 1.5vw !important;
+}
+
+#fill_box{
+    height: 100vh !important;
+    width: 100vW !important;
+    position: fixed !important;
+    top: 0;
+    background-color: rgba(0,0,0,0.4) !important;
+    display: none;
+    overflow: scroll !important;
+    z-index: 2 !important;
+}
+#date_box{
+    height: 100vh !important;
+    width: 100vW !important;
+    position: fixed !important;
+    top: 0;
+    background-color: rgba(0,0,0,0.4) !important;
+    display: none;
+    overflow: scroll !important;
+    z-index: 2 !important;
+}
+#card1{
+    border-radius: 5vw !important;
+    -moz-transition: 0.6s !important;
+    -webkit-transition: 0.6s !important;
+    background-color: #fff !important;
+}
+#card1:hover{
+    background-color: #035c83 !important;
+    color: #fff !important;
+}
+.bg-light1{
+    background: #f8f8f8 !important;
+}
+
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('../images/load1.gif') 
+                50% 50% 
+                no-repeat;
+    }
+    
+    body.loading .modal {
+        overflow: hidden;   
+    }
+    
+    body.loading .modal {
+        display: block;
+    }
+    
+
+@media screen and (max-width:769px){
+.w-90{
+    width: 100% !important;
+}
+}
